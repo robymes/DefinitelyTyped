@@ -10,6 +10,18 @@
             "typingsPackageName": "moment",
             "sourceRepoURL": "https://github.com/moment/moment",
             "asOfVersion": "2.13.0"
+        },
+        {
+            "libraryName": "TypeScript",
+            "typingsPackageName": "typescript",
+            "sourceRepoURL": "https://github.com/Microsoft/TypeScript",
+            "asOfVersion": "2.0.0"
+        },
+        {
+            "libraryName": "TypeScript",
+            "typingsPackageName": "typescript-services",
+            "sourceRepoURL": "https://github.com/Microsoft/TypeScript",
+            "asOfVersion": "2.0.0"
         }
     ]
 }
