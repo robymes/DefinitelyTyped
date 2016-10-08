@@ -78,7 +78,7 @@ declare namespace Bacon {
      * Bacon.fromPromise($.ajax("https://baconjs.github.io/"), true);
      * Bacon.fromPromise(Promise.resolve(1), false);
      */
-    function fromPromise<E, A>(promise:Promise<A>|JQueryXHR, abort?:boolean):EventStream<E, A>;
+    function fromPromise<E, A>(promise:JQueryPromise<A>|JQueryXHR, abort?:boolean):EventStream<E, A>;
 
     /**
      * @callback Bacon.fromPromise~eventTransformer
@@ -100,7 +100,7 @@ declare namespace Bacon {
      *     return [new Bacon.Next(n), new Bacon.Next(() => n), new Bacon.End()];
      * });
      */
-    function fromPromise<E, A, B>(promise:Promise<A>|JQueryXHR, abort:boolean, eventTransformer:(value:A) => (Initial<B>|Next<B>|End<B>|Error<E>)[]):EventStream<E, B>;
+    function fromPromise<E, A, B>(promise:JQueryPromise<A>|JQueryXHR, abort:boolean, eventTransformer:(value:A) => (Initial<B>|Next<B>|End<B>|Error<E>)[]):EventStream<E, B>;
 
     /**
      * @function
@@ -472,7 +472,7 @@ declare namespace Bacon {
          * @param {Observable#toPromise~promiseCtr} [promiseCtr]
          * @returns {Promise<A>}
          */
-        toPromise(promiseCtr?:(value:A) => Promise<A>):Promise<A>;
+        toPromise(promiseCtr?:(value:A) => JQueryPromise<A>):JQueryPromise<A>;
 
         /**
          * @callback Observable#firstToPromise~promiseCtr
@@ -485,7 +485,7 @@ declare namespace Bacon {
          * @param {Observable#firstToPromise~promiseCtr} [promiseCtr]
          * @returns {Promise<A>}
          */
-        firstToPromise(promiseCtr?:(value:A) => Promise<A>):Promise<A>;
+        firstToPromise(promiseCtr?:(value:A) => JQueryPromise<A>):JQueryPromise<A>;
 
         /**
          * @method
